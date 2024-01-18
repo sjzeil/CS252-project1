@@ -1,21 +1,13 @@
-all: progA progB
+bin/%.class: src/%.java
+	javac -g -d bin -cp src:bin src/$*.java
 
-progA: utilities.o progA1.o progA2.o
-	g++ -g -DDEBUG utilities.o progA1.o progA2.o
-	mv a.out progA
+median.jar: bin/cs252/TestMedian.class bin/cs252/Median.class
+	jar cfe $@ cs252.TestMedian -C bin/ .
 
-progB: utilities.o progB1.o
-	g++ -g -DDEBUG utilities.o progB1.o
-	mv a.out progB
+bin/cs252/TestMedian.class: src/cs252/TestMedian.java bin/cs252/Median.class
 
-utilities.o: utilities.cpp utilities.h
-	g++ -g -DDEBUG -c utilities.cpp
+run: median.jar
+	java -jar median.jar
 
-progA1.o: progA1.cpp utilities.h progA1.h
-	g++ -g -DDEBUG -c progA1.cpp
-
-progA2.o: progA2.cpp utilities.h progA1.h
-	g++ -g -DDEBUG -c progA2.cpp
-
-progB1.o: progB1.cpp
-	g++ -g -DDEBUG -c progB1.cpp
+clean:
+	rm -r median.jar bin

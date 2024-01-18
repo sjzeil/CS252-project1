@@ -1,36 +1,12 @@
-# Prerequisites
-*.d
+# Compiled code
+**/*.class
+**/*.jar
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+# Backups
+**/*~
+**/*.bak
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-
-progA
-progB
-
+# IDE settings
+.vscode/
+.classpath
+.project
