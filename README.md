@@ -1,2 +1,5 @@
 # CS252-project1
-A small project
+
+A small Java project.
+
+* Ths repository belongs to yourMidasID@odu.edu
